@@ -37,8 +37,10 @@ public class MyHashSet<E> implements MySet<E> {
 
     @Override
     public void clear() {
-        for (int i = 0; i < buckets.length; i++)
+        for (int i = 0; i < buckets.length; i++) {
             buckets[i] = null;
+        }
+        size = 0;
     }
 
     @Override
@@ -57,7 +59,7 @@ public class MyHashSet<E> implements MySet<E> {
 
     @Override
     public boolean isEmpty() {
-        return false;
+        return size() == 0;
     }
 
     @Override
@@ -89,8 +91,11 @@ public class MyHashSet<E> implements MySet<E> {
 
     @Override
     public Object[] toArray() {
-        return new Object[0];
+//        Object[] objArray = new Object[size()];
+//        for (int index = 0; index < objArray.length; index++) ;
+//        return objArray;
     }
+
 
     private int hashFunction(int hashCode) {
 
@@ -120,6 +125,5 @@ public class MyHashSet<E> implements MySet<E> {
         }
         return sb.toString();
     }
-
 
 }

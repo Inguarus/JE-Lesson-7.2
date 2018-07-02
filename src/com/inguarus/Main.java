@@ -25,10 +25,19 @@ public class Main {
         System.out.println(countries);
         System.out.println(countries.contains("USA"));
         System.out.println(countries.contains("USSR"));
+        System.out.println();
         countries.remove("USA");
         countries.remove("England");
         countries.remove("Scotland");
         System.out.println(countries);
+        System.out.println(countries.isEmpty());
+        System.out.println();
+
+        Object[] objArray = countries.toArray();
+        System.out.println("Array countries: ");
+        for (int index = 0; index < objArray.length; index++)
+            System.out.println(objArray[index]);
+
         System.out.println("Countries list cleared: ");
         countries.clear();
         System.out.println(countries);
