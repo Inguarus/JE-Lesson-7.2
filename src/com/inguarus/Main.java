@@ -37,7 +37,8 @@ public class Main {
         System.out.println("Array countries: ");
         for (int index = 0; index < objArray.length; index++)
             System.out.println(objArray[index]);
-
+        
+        System.out.println();
         System.out.println("Countries list cleared: ");
         countries.clear();
         System.out.println(countries);

@@ -1,5 +1,8 @@
 package com.inguarus;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class MyHashSet<E> implements MySet<E> {
 
     public MyHashSet(int capacity) {
@@ -91,9 +94,21 @@ public class MyHashSet<E> implements MySet<E> {
 
     @Override
     public Object[] toArray() {
-//        Object[] objArray = new Object[size()];
-//        for (int index = 0; index < objArray.length; index++) ;
-//        return objArray;
+        List<E> result = new ArrayList<>();
+        for (Entry bucket : buckets) {
+            if (bucket != null) {
+                addChain(bucket, result);
+            }
+        }
+        return result.toArray();
+    }
+
+    private void addChain(Entry bucket, List<E> list) {
+        list.add((E) bucket.key);
+        while (bucket.next != null) {
+            list.add((E) bucket.key);
+            bucket = bucket.next;
+        }
     }
 
 
